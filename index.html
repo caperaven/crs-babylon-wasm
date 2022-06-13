@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Babylonjs WASM Test</title>
 </head>
 <body>
+    <canvas id="canvas"></canvas>
+
     <script type="module">
-        import init, {add} from "/bin/wasm_lib.js";
+        import "https://cdnjs.cloudflare.com/ajax/libs/babylonjs/5.10.0/babylon.js"
+        import init, {initialize} from "/bin/wasm_lib.js";
 
         async function run() {
             await init();
-            const result = add(2, 2);
+            const result = initialize("initialize");
             alert(result);
         }
 
