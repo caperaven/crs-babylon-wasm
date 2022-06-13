@@ -1,0 +1,26 @@
+{
+  "name": "crs-rust-wasm-starter",
+  "version": "1.0.0",
+  "description": "## Building the project",
+  "main": "index.js",
+  "bin": {
+    "crs-rust-wasm-starter": "wasm_lib.js"
+  },
+  "scripts": {
+    "build": "wasm-pack build rust/ --target web --out-dir ../bin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caperaven/crs-rust-wasm-starter.git"
+  },
+  "keywords": [
+    "rust",
+    "wasm"
+  ],
+  "author": "Johan Rabie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caperaven/crs-rust-wasm-starter/issues"
+  },
+  "homepage": "https://github.com/caperaven/crs-rust-wasm-starter#readme"
+}

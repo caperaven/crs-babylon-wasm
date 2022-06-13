@@ -1,0 +1,4 @@
+/rust/target/
+/rust/Cargo.lock
+/rust/bin/
+/bin/
