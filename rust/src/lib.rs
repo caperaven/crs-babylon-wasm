@@ -2,15 +2,15 @@
 
 mod features;
 use wasm_bindgen::prelude::*;
-use crate::features::{babylon};
+use crate::features::{Color3};
 
 #[wasm_bindgen]
-pub fn initialize(id: &str) {
+pub fn initialize(id: &str) -> String {
+    console_error_panic_hook::set_once();
+
     let document = web_sys::window().unwrap().document().unwrap();
     let canvas = document.get_element_by_id(id).unwrap();
 
-    let babylon = babylon().unwrap();
-    let engine = babylon.engine(canvas).unwrap();
-    let scene = babylon.scene(engine).unwrap();
-    scene.set_clear_color(babylon.Color3().unwrap().from_hex_string("#ff0090"));
+    let color = Color3::red();
+    color.to_string()
 }
