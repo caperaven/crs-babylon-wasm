@@ -7,5 +7,5 @@ extern "C" {
     pub type Engine;
 
     #[wasm_bindgen(constructor, js_name = Engine, js_namespace = ["BABYLON"])]
-    pub fn new(canvas: Element) -> Engine;
+    pub fn new(canvas: &Element) -> Engine;
 }

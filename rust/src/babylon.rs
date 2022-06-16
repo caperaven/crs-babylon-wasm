@@ -3,9 +3,15 @@ use super::*;
 
 mod color3;
 mod engine;
+mod scene;
+mod vector3;
+mod free_camera;
 
 pub use color3::Color3;
 pub use engine::Engine;
+pub use scene::Scene;
+pub use vector3::Vector3;
+pub use free_camera::FreeCamera;
 
 
 // https://github.com/rustwasm/wasm-bindgen/tree/main/crates/web-sys/src
