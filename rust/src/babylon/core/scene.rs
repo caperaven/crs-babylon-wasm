@@ -15,4 +15,7 @@ extern "C" {
 
     #[wasm_bindgen(method, getter = clearColor)]
     pub fn clear_color(this: &Scene) -> Color3;
+
+    #[wasm_bindgen(method)]
+    pub fn render(this: &Scene);
 }

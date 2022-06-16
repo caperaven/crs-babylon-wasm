@@ -2,7 +2,7 @@
 
 mod babylon;
 use wasm_bindgen::prelude::*;
-use crate::babylon::{Color3, Engine, Scene, Vector3, FreeCamera, HemisphericLight};
+use crate::babylon::{Color3, FreeCamera, HemisphericLight, Engine, Scene, Vector3};
 
 #[wasm_bindgen]
 pub fn initialize(id: &str) {
