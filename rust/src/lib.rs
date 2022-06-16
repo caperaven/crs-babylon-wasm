@@ -2,7 +2,7 @@
 
 mod babylon;
 use wasm_bindgen::prelude::*;
-use crate::babylon::{Color3, Engine, Scene, Vector3, FreeCamera};
+use crate::babylon::{Color3, Engine, Scene, Vector3, FreeCamera, HemisphericLight};
 
 #[wasm_bindgen]
 pub fn initialize(id: &str) {
@@ -20,4 +20,7 @@ pub fn initialize(id: &str) {
     let camera = FreeCamera::new("camera", Vector3::new(0.0, 5.0, -10.0), &scene);
     camera.set_target(Vector3::zero());
     camera.attach_control(&canvas, true);
+
+    let light = HemisphericLight::new("light", Vector3::new(0.0, 1.0, 0.0), &scene);
+    light.set_intensity(0.7);
 }
