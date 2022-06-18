@@ -1,6 +1,6 @@
 use wasm_bindgen::prelude::*;
 use web_sys::Element;
-use crate::{Color3, Engine};
+use crate::babylon::core::{Color3, Engine};
 
 #[wasm_bindgen]
 extern "C" {

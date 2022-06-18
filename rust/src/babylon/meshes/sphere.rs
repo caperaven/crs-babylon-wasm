@@ -1,5 +1,5 @@
 use wasm_bindgen::prelude::*;
-use crate::{Scene, Vector3};
+use crate::babylon::core::{Scene, Vector3};
 
 #[wasm_bindgen]
 pub struct SphereOptions {

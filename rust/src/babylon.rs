@@ -1,12 +1,35 @@
 #![allow(unused_imports)]
+
+mod cameras;
+mod lights;
+mod meshes;
+mod core;
+
+use web_sys::Element;
+use crate::babylon::core::{Engine, Scene};
 use super::*;
 
-mod core;
-mod lights;
-mod cameras;
-mod meshes;
+pub use cameras::*;
+pub use lights::*;
+pub use self::core::*;
+pub use meshes::*;
 
-pub use self::core::{Engine, Scene, Vector3, Color3};
-pub use meshes::{Sphere, SphereOptions, Ground, GroundOptions};
-pub use cameras::FreeCamera;
-pub use lights::HemisphericLight;
+pub struct Babylon {
+    pub engine: Engine,
+    pub scene: Scene,
+}
+
+impl Babylon {
+    pub fn new(canvas: &Element) -> Babylon {
+        let engine = Engine::new(&canvas);
+        let scene = Scene::new(&engine);
+
+        Babylon {
+            engine,
+            scene
+        }
+    }
+
+    pub fn run_loop(&self) {
+    }
+}

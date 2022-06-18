@@ -1,7 +1,7 @@
 use wasm_bindgen::prelude::*;
 use web_sys::Element;
+use crate::babylon::core::Scene;
 use crate::babylon::Vector3;
-use crate::Scene;
 
 #[wasm_bindgen]
 extern "C" {
