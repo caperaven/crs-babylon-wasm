@@ -10,11 +10,11 @@ extern "C" {
     #[wasm_bindgen(constructor, js_name = Scene, js_namespace = ["BABYLON"])]
     pub fn new(canvas: &Engine) -> Scene;
 
-    #[wasm_bindgen(method, setter = clearColor)]
-    pub fn set_clear_color(this: &Scene, val: Color3);
-
     #[wasm_bindgen(method, getter = clearColor)]
     pub fn clear_color(this: &Scene) -> Color3;
+
+    #[wasm_bindgen(method, setter = clearColor)]
+    pub fn set_clear_color(this: &Scene, val: Color3);
 
     #[wasm_bindgen(method)]
     pub fn render(this: &Scene);

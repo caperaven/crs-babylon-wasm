@@ -1,4 +1,3 @@
-use js_sys::Boolean;
 use wasm_bindgen::prelude::*;
 use web_sys::Element;
 use crate::babylon::Vector3;

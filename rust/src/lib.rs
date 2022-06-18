@@ -2,7 +2,10 @@
 
 mod babylon;
 use wasm_bindgen::prelude::*;
-use crate::babylon::{Color3, FreeCamera, HemisphericLight, Engine, Scene, Vector3};
+use crate::babylon::{
+    Color3, FreeCamera, HemisphericLight, Engine, Scene, Vector3,
+    Sphere, SphereOptions, Ground, GroundOptions};
+
 
 #[wasm_bindgen]
 pub fn initialize(id: &str) {
@@ -23,4 +26,9 @@ pub fn initialize(id: &str) {
 
     let light = HemisphericLight::new("light", Vector3::new(0.0, 1.0, 0.0), &scene);
     light.set_intensity(0.7);
+
+    let sphere = Sphere::new("sphere", SphereOptions { diameter: 2, segments: 32 }, &scene);
+    sphere.set_absolute_position(Vector3::new(0.0, 1.0, 0.0));
+
+    let _ground = Ground::new("ground", GroundOptions {width: 6, height: 6}, &scene);
 }
