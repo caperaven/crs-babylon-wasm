@@ -6,9 +6,8 @@ use crate::babylon::{
     Color3, FreeCamera, HemisphericLight, Engine, Scene, Vector3,
     Sphere, SphereOptions, Ground, GroundOptions};
 
-
 #[wasm_bindgen]
-pub fn initialize(id: &str) {
+pub fn initialize(id: &str) -> Result<BabylonResult, String> {
     console_error_panic_hook::set_once();
 
     let document = web_sys::window().unwrap().document().unwrap();
