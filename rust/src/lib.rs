@@ -5,7 +5,6 @@ use wasm_bindgen::prelude::*;
 
 use crate::babylon::{Babylon, Color3, FreeCamera, Ground, GroundOptions, HemisphericLight, Sphere, SphereOptions, Vector3};
 
-
 #[wasm_bindgen]
 pub fn initialize(id: &str) {
     console_error_panic_hook::set_once();
@@ -13,7 +12,7 @@ pub fn initialize(id: &str) {
     let document = web_sys::window().unwrap().document().unwrap();
     let canvas = document.get_element_by_id(id).unwrap();
 
-    let babylon = Babylon::new(&canvas);
+    let mut babylon: Babylon = Babylon::new(&canvas);
 
     let color = Color3::from_hex_string("#ff0090");
     babylon.scene.set_clear_color(color);

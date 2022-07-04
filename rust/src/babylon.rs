@@ -17,6 +17,7 @@ pub use meshes::*;
 pub struct Babylon {
     pub engine: Engine,
     pub scene: Scene,
+    loop_handle: Option<Closure<dyn FnMut()>>
 }
 
 impl Babylon {
@@ -26,10 +27,12 @@ impl Babylon {
 
         Babylon {
             engine,
-            scene
+            scene,
+            loop_handle: None
         }
     }
 
-    pub fn run_loop(&self) {
+    pub fn run_loop(&mut self) {
+        // self.engine.run_render_loop(|| => self.scene.render())
     }
 }
