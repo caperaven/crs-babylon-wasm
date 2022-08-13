@@ -1,38 +1,11 @@
-# CRS Rust WASM Starter
+# CRS BabylonJs Wasm
 
 ## Introduction
-This project is a template for starting Rust web assembly libraries.  
-This project uses standard ES Modules thus no bundlers.
+This is still a work in progress, I want to create a template that encapuslates some BabylonJs features in web assembly using Rust.  
+There are a number of performance and related tests I want to run where the development is focused on the rust side but calling into BabylonsJs
 
-This project assumes you have rust installed and dependencies like wasm-pack.  
-If you don't have wasm-pack installed you can do so using
-```
-cargo install wasm-pack
-```
+Once completed it will be made into a template as a quick starter.  
 
-Remember to update the Cargo.toml file in the rust folder with your project details.
-
-## Building the project
-```
-wasm-pack build --target web --out-dir ../bin
-```
-
-The package.json file contains a script that will build it for you, should you prefer that.
-
-Performing a build using the above command will create a directory called bin in the root of the project.  
-This directory contains all the required wasm and js files to use in index.html.
-
-## Getting started links
-https://rustwasm.github.io/wasm-bindgen/introduction.html  
-https://rustwasm.github.io/docs/wasm-pack/  
-https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm  
-
-## Other links
-https://github.com/rustwasm/wasm-bindgen  
-https://crates.io/  
-https://rustwasm.github.io/wasm-bindgen/api/web_sys/   
-https://doc.rust-lang.org/book/title-page.html  
-
-
-## Examples
-https://github.com/rustwasm/wasm-bindgen/tree/master/examples
+## Primary aim
+Use multithreading where one thread updates the UI while another does data processing and updates the meta data used to render from.  
+Instead of creating bindings for all of Babylon, the idea is to create bindings for what you use, keeping the web assembly small.
