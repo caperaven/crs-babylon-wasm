@@ -1,6 +1,7 @@
 #![feature(extern_types)]
 
 mod babylon;
+
 use wasm_bindgen::prelude::*;
 
 use crate::babylon::{Babylon, Color3, FreeCamera, Ground, GroundOptions, HemisphericLight, Sphere, SphereOptions, Vector3};
@@ -12,7 +13,7 @@ pub fn initialize(id: &str) {
     let document = web_sys::window().unwrap().document().unwrap();
     let canvas = document.get_element_by_id(id).unwrap();
 
-    let mut babylon: Babylon = Babylon::new(&canvas);
+    let babylon: Babylon = Babylon::new(&canvas);
 
     let color = Color3::from_hex_string("#ff0090");
     babylon.scene.set_clear_color(color);
@@ -29,5 +30,10 @@ pub fn initialize(id: &str) {
 
     let _ground = Ground::new("ground", GroundOptions {width: 6, height: 6}, &babylon.scene);
 
-    babylon.run_loop();
+    let cb = Closure::wrap(Box::new(move || {
+        babylon.scene.render();
+    }) as Box<dyn FnMut()>);
+
+    babylon.engine.run_render_loop(&cb);
 }
+

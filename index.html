@@ -11,12 +11,13 @@
 
     <script type="module">
         import "https://cdnjs.cloudflare.com/ajax/libs/babylonjs/5.10.0/babylon.js"
-        import init, {initialize} from "/bin/wasm_lib.js";
+        import init, {initialize, test} from "/bin/wasm_lib.js";
 
         async function run() {
             await init();
-            const results = initialize("canvas");
-            console.log(results);
+            // const results = initialize("canvas");
+            // console.log(results);
+            test();
         }
 
         run();
