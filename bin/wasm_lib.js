@@ -130,11 +130,34 @@ function passStringToWasm0(arg, malloc, realloc) {
 }
 /**
 * @param {string} id
+* @returns {any}
 */
 export function initialize(id) {
     const ptr0 = passStringToWasm0(id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
     const len0 = WASM_VECTOR_LEN;
-    wasm.initialize(ptr0, len0);
+    const ret = wasm.initialize(ptr0, len0);
+    return takeObject(ret);
+}
+
+let stack_pointer = 32;
+
+function addBorrowedObject(obj) {
+    if (stack_pointer == 1) throw new Error('out of js stack');
+    heap[--stack_pointer] = obj;
+    return stack_pointer;
+}
+/**
+* @param {any} scene
+* @param {string} color
+*/
+export function change_background_color(scene, color) {
+    try {
+        const ptr0 = passStringToWasm0(color, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        wasm.change_background_color(addBorrowedObject(scene), ptr0, len0);
+    } finally {
+        heap[stack_pointer++] = undefined;
+    }
 }
 
 let cachegetInt32Memory0 = null;
@@ -413,7 +436,7 @@ async function init(input) {
     imports.wbg.__wbindgen_throw = function(arg0, arg1) {
         throw new Error(getStringFromWasm0(arg0, arg1));
     };
-    imports.wbg.__wbindgen_closure_wrapper44 = function(arg0, arg1, arg2) {
+    imports.wbg.__wbindgen_closure_wrapper45 = function(arg0, arg1, arg2) {
         const ret = makeMutClosure(arg0, arg1, 21, __wbg_adapter_10);
         return addHeapObject(ret);
     };

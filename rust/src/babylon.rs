@@ -3,7 +3,7 @@
 mod cameras;
 mod lights;
 mod meshes;
-mod core;
+pub(crate) mod core;
 
 use web_sys::Element;
 use crate::babylon::core::{Engine, Scene};

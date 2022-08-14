@@ -3,11 +3,11 @@
 mod babylon;
 
 use wasm_bindgen::prelude::*;
-
 use crate::babylon::{Babylon, Color3, FreeCamera, Ground, GroundOptions, HemisphericLight, Sphere, SphereOptions, Vector3};
+use crate::babylon::core::{Engine, Scene};
 
 #[wasm_bindgen]
-pub fn initialize(id: &str) {
+pub fn initialize(id: &str) -> Engine {
     console_error_panic_hook::set_once();
 
     let document = web_sys::window().unwrap().document().unwrap();
@@ -39,5 +39,12 @@ pub fn initialize(id: &str) {
     engine.run_render_loop(&cb);
 
     cb.forget();
+
+    engine
 }
 
+#[wasm_bindgen]
+pub fn change_background_color(scene: &Scene, color: &str) {
+    let clr = Color3::from_hex_string(color);
+    scene.set_clear_color(clr);
+}

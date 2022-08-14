@@ -1,7 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 export const memory: WebAssembly.Memory;
-export function initialize(a: number, b: number): void;
+export function initialize(a: number, b: number): number;
+export function change_background_color(a: number, b: number, c: number): void;
 export function __wbg_groundoptions_free(a: number): void;
 export function __wbg_get_groundoptions_width(a: number): number;
 export function __wbg_set_groundoptions_width(a: number, b: number): void;

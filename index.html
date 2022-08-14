@@ -24,11 +24,17 @@
 
     <script type="module">
         import "https://cdnjs.cloudflare.com/ajax/libs/babylonjs/5.10.0/babylon.js"
-        import init, {initialize} from "/bin/wasm_lib.js";
+        import init, {initialize, change_background_color} from "/bin/wasm_lib.js";
 
         async function run() {
             await init();
-            initialize("canvas");
+            // get the engine from where you can make other calls
+            // the scene is part of the engine object
+            const engine = initialize("canvas");
+            console.log(engine);
+
+            // this shows how I can make other calls that affect the scene
+            change_background_color(engine.scenes[0], "#ff9000");
         }
         run();
     </script>

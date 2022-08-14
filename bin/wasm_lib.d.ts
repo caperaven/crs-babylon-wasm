@@ -2,8 +2,14 @@
 /* eslint-disable */
 /**
 * @param {string} id
+* @returns {any}
 */
-export function initialize(id: string): void;
+export function initialize(id: string): any;
+/**
+* @param {any} scene
+* @param {string} color
+*/
+export function change_background_color(scene: any, color: string): void;
 /**
 */
 export class GroundOptions {
@@ -31,7 +37,8 @@ export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembl
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
-  readonly initialize: (a: number, b: number) => void;
+  readonly initialize: (a: number, b: number) => number;
+  readonly change_background_color: (a: number, b: number, c: number) => void;
   readonly __wbg_groundoptions_free: (a: number) => void;
   readonly __wbg_get_groundoptions_width: (a: number) => number;
   readonly __wbg_set_groundoptions_width: (a: number, b: number) => void;
