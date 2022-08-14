@@ -1,11 +1,10 @@
 # CRS BabylonJs Wasm
 
 ## Introduction
-This is still a work in progress, I want to create a template that encapuslates some BabylonJs features in web assembly using Rust.  
-There are a number of performance and related tests I want to run where the development is focused on the rust side but calling into BabylonsJs
+The purpose of this repo is to demonstrate how to create rust code that uses babylonjs as a render engine.
+It is not a extendisive exposure of all of babylon featueres but only what is required for this project.
+It does however show you enough to expose the parts that you might need.
 
-Once completed it will be made into a template as a quick starter.  
-
-## Primary aim
-Use multithreading where one thread updates the UI while another does data processing and updates the meta data used to render from.  
-Instead of creating bindings for all of Babylon, the idea is to create bindings for what you use, keeping the web assembly small.
+## Compile the wasm
+run the build command in the rust folder
+```wasm-pack build --target web --out-dir ../bin```
