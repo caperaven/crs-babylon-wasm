@@ -5,21 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Babylonjs WASM Test</title>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
     <canvas id="canvas"></canvas>
 
     <script type="module">
         import "https://cdnjs.cloudflare.com/ajax/libs/babylonjs/5.10.0/babylon.js"
-        import init, {initialize, test} from "/bin/wasm_lib.js";
+        import init, {initialize} from "/bin/wasm_lib.js";
 
         async function run() {
             await init();
-            // const results = initialize("canvas");
-            // console.log(results);
-            test();
+            initialize("canvas");
         }
-
         run();
     </script>
 </body>

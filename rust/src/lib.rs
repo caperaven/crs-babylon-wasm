@@ -30,10 +30,14 @@ pub fn initialize(id: &str) {
 
     let _ground = Ground::new("ground", GroundOptions {width: 6, height: 6}, &babylon.scene);
 
+    let Babylon {scene, engine} = babylon;
+
     let cb = Closure::wrap(Box::new(move || {
-        babylon.scene.render();
+        scene.render();
     }) as Box<dyn FnMut()>);
 
-    babylon.engine.run_render_loop(&cb);
+    engine.run_render_loop(&cb);
+
+    cb.forget();
 }
 

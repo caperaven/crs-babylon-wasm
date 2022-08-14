@@ -1,0 +1,15 @@
+{
+  "name": "wasm-lib",
+  "collaborators": [
+    "user <user@gmail.com>"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "wasm_lib_bg.wasm",
+    "wasm_lib.js",
+    "wasm_lib.d.ts"
+  ],
+  "module": "wasm_lib.js",
+  "types": "wasm_lib.d.ts",
+  "sideEffects": false
+}
